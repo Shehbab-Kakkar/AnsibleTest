@@ -1,0 +1,16 @@
+---
+ - hosts: tower.example.com
+   tasks:
+   - name: Disable ssh root login
+     lineinfile: dest=/etc/ssh/sshd_config
+                 regexp='PermitRootLogin'
+                 line="PermitRootLogin no"
+
+   - name: Disbling Apache Headers
+     lineinfile: dest=/etc/httpd/conf/httpd.conf
+                 line="ServerSignature On"
+                 regexp='ServerSignature'
+     lineinfile: dest=/etc/httpd/conf/httpd.conf
+                 regexp='ServerTokens'
+                 line="ServerSignature Dev"
+                
