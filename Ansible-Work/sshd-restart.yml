@@ -1,7 +1,0 @@
----
- - hosts: tower.example.com
-   tasks:
-   - name: restart sshd service
-     service: name=sshd state=restarted enabled=yes
-   - name:  Disable Mac algo in ssh
-     lineinfile: dest=/etc/ssh/sshd_config regexp="^MACs" line="MACs hmac-sha1,umac-64@openssh.com,hmac-ripemd160"
