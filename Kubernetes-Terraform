@@ -1,0 +1,65 @@
+-How to install aws binary
+
+1)  yum install python3-pip  ; pip3 install awscli
+2)  Create a user aws
+    Go to Aws web service console
+	 
+	IAM > User > Group >  Access Key ID and Secret Access Key
+
+3)  cat .aws/credentials
+    [default]
+	aws_access_key_id=
+	aws_secret_access_key=
+     
+    cat .aws/config
+	[default]
+	region=eu-central-1
+	output=json
+	
+4) aws iam get-user             //run this command to connect to the user it will display output in the json format
+
+https://github.com/kubernetes/kops
+
+-How to install kubectl  
+
+wget -O kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+-How to install kops binary 
+
+wget -O kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+chmod +x ./kops
+sudo mv ./kops /usr/local/bin/
+
+-How to install terraform
+
+https://geekdudes.wordpress.com/2018/01/04/installing-terraform-on-centos-7/
+https://www.terraform.io/downloads.html
+
+------------------
+
+How to use kops
+
+Phase-1    kops create cluster --name=kops.devopsinuese.com \
+           ... ... 
+		   --target=terraform
+
+Phase-2    Terraform
+           terraform init
+		   ...
+		   terraform apply
+
+Phase-3        Master(EC2) 
+               ^          ^
+              /            \
+			  
+      Node1(EC2)  <--->     Node2(EC2)
+           
+==================================================
+
+			
+
+
+
+
