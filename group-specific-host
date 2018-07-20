@@ -7,5 +7,6 @@
      - name: create directory
        shell: mkdir -p /etc/ansible/{{ inventory_hostname }}
        with_items:
-         - "{{ groups['centos7'][1] }}"
+         when:  inventory_hostname == groups.server[1]
+
 
