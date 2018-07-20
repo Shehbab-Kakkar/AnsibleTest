@@ -1,0 +1,11 @@
+
+---
+
+- hosts: all
+  #serial: 1
+  tasks:
+     - name: create directory
+       shell: mkdir -p /etc/ansible/{{ inventory_hostname }}
+       with_items:
+         - "{{ groups['centos7'][1] }}"
+
