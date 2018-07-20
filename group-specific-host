@@ -1,4 +1,4 @@
-
+# Playbook will run on second element of the inventory group host
 ---
 
 - hosts: all
