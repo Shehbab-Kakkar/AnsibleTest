@@ -6,6 +6,7 @@ E2 Instance Aws Ansible
 https://www.linuxschoolonline.com/use-ansible-to-build-and-manage-aws-ec2-instances/ 
 https://docs.ansible.com/ansible/latest/scenario_guides/guide_aws.html#provisioning
 https://unix.stackexchange.com/questions/306295/ansible-configuring-aws-ec2-instance-after-its-created
+https://www.youtube.com/watch?v=8cgjEDCd50Y complete video ec2 and apache install
 
 Infra as a code
 https://labs.madisoft.it/?s=ec2
