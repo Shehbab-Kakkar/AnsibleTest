@@ -12,6 +12,6 @@ https://unix.stackexchange.com/questions/306295/ansible-configuring-aws-ec2-inst
 https://www.bogotobogo.com/DevOps/Ansible/Ansible-aws-creating-elb-and-register-ec2-instance.php //perfect
 https://github.com/ansible/ansible/issues/35580 // block mount
 https://docs.ansible.com/ansible/latest/modules/ec2_module.html
-
+https://djaodjin.com/blog/create-ec2-ami-with-ansible.blog.html // User data and something advance
 Infra as a code
 https://labs.madisoft.it/?s=ec2
