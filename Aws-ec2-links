@@ -15,3 +15,4 @@ https://docs.ansible.com/ansible/latest/modules/ec2_module.html
 https://djaodjin.com/blog/create-ec2-ami-with-ansible.blog.html // User data and something advance
 Infra as a code
 https://labs.madisoft.it/?s=ec2
+https://www.reddit.com/r/ansible/comments/5yolii/help_with_using_add_host_module/ Add hosts explained
