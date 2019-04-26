@@ -1,6 +1,13 @@
 Ec2 Windows  Ansible]
 http://blog.rolpdog.com/search/label/Ansible  // Ansible for windows
 https://gist.github.com/nitzmahone/aaf4340ea8d87c7fa578 // Ansible for windows provisioning and installing software
+https://www.reddit.com/r/aws/comments/4h4prr/ansible_creating_a_windows_2012_r2_instance/
+https://blog.kloud.com.au/2017/06/15/combining-ansible-and-aws-cloudformation-for-windows-provisioning/
+https://docs.ansible.com/ansible/latest/modules/ec2_win_password_module.html
+https://gist.github.com/rbigeard/b02d8394158717bd8f9d2b5dc2e8ac2d
+https://github.com/Shehbab-Kakkar/ansible-aws-windows
+https://4sysops.com/archives/using-windows-powershell-with-ansible
+https://gist.github.com/Shehbab-Kakkar/8719f249e62b818037e936e64675dae4
 
 E2 Instance Aws Ansible 
 https://www.linuxschoolonline.com/use-ansible-to-build-and-manage-aws-ec2-instances/ 
