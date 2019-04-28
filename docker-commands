@@ -4,3 +4,6 @@ docker start -a contiainer id
 docker ps
 docker ps --all
 docker create busybox echo hi there
+docker logs container-id
+docker system prune 
+
