@@ -20,3 +20,4 @@ dockerfile -> docker client -> docker server -> \usable image
 docker build -t container-id/project:latest
 
 docker build/ -t stephn/redis:latest .
+docker run stephn/redis
