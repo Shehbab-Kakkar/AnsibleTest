@@ -1,0 +1,6 @@
+docker run -it busybox echo he there
+docker start container id
+docker start -a contiainer id
+docker ps
+docker ps --all
+docker create busybox echo hi there
