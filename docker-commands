@@ -17,6 +17,6 @@ docker exec -it container-id redis-cli
 
 dockerfile -> docker client -> docker server -> \usable image
 
-docker create -t container-id/project:latest
+docker build -t container-id/project:latest
 
-docker create -t stephn/redis:latest
+docker build/ -t stephn/redis:latest .
