@@ -14,3 +14,5 @@ docker exec -it container-id redis-cli
 
 -i = for stdin
 -t = nice terminal and tab completion
+
+dockerfile -> docker client -> docker server -> \usable image
