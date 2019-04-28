@@ -7,4 +7,8 @@ docker create busybox echo hi there
 docker logs container-id
 docker system prune 
 docker run = docker create + docker start
+https://superuser.com/questions/756999/whats-the-difference-between-docker-stop-and-docker-kill
+docker stop container-id  do graceful shutdown
+docker kill container-id SIGKILL passed ungraceful shutdown
+
 
