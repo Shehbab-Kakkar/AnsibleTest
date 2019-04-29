@@ -21,3 +21,5 @@ docker build -t container-id/project:latest
 
 docker build/ -t stephn/redis:latest .
 docker run stephn/redis
+
+docker run -p 8080:8080 stephenginder/simpleweb 
