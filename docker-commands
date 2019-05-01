@@ -27,3 +27,5 @@ docker run -p 8080:8080 stephenginder/simpleweb
 docker-compose up -d
 docker-compose down
 docker-compose ps // run where the directory have docker-compose.yml file otherwise error
+
+docker build -f Dockerfile.dev .
