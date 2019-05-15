@@ -9,5 +9,10 @@ services use a selector attribute to connect to pods
 each pods matching the selectors added to the service resource as an endpoint.
 Pods as well as service ip address cannot be reached from outside the cluster.
 OpenShift routes allow network access to pods from outside the openshift environment.
+A dedicated router pod is used to load-balanc traffic between the target Pods
+The router pods uses HAProxy and can be scaled itself
+The router exposes a public facing ipaddress and dns hostname to the internal pod networking
+Routers connect directory to the pods, the service is used for pod lookup only but not
+involved in the actual traffic flow
 
 
