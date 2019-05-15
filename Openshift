@@ -1,3 +1,9 @@
 ovs-subnet
 ovs-multitenant
 ovs-networkpolicy- allow administrator to defines its own policies
+each pod in the container has its own ip address
+container in the pod behave as if they all are on the same host
+To access pod services are used
+services implemented round robin to access the pods. service also allow replicated pods to communicate to one another.
+
+
