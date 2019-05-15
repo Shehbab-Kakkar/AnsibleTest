@@ -7,6 +7,7 @@ To access pod services are used
 services implemented round robin to access the pods. service also allow replicated pods to communicate to one another.
 services use a selector attribute to connect to pods
 each pods matching the selectors added to the service resource as an endpoint.
-Podds as well as service ip address cannot be reached from outside the cluster.
+Pods as well as service ip address cannot be reached from outside the cluster.
+OpenShift routes allow network access to pods from outside the openshift environment.
 
 
