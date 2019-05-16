@@ -21,3 +21,10 @@ Use oc expose service my-app --name my-app [--hostname=my-app.apps.example.com]
 oc create combined with a yaml or json file
 oc new-app command do not create a route
 oc delete route to un-expose a service
+The default routing subdomain is set in the master-config.yaml openshift configuration file
+routingConfig:
+subdomain: router.default.svc.cluster.local
+
+Route must be able to bind to the port 80 and 443 do not run a router on a host that already uses these ports for something else.
+
+   
