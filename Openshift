@@ -15,4 +15,9 @@ The router exposes a public facing ipaddress and dns hostname to the internal po
 Routers connect directory to the pods, the service is used for pod lookup only but not
 involved in the actual traffic flow
 
+Create Routes
 
+Use oc expose service my-app --name my-app [--hostname=my-app.apps.example.com]
+oc create combined with a yaml or json file
+oc new-app command do not create a route
+oc delete route to un-expose a service
