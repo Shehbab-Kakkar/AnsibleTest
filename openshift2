@@ -1,0 +1,33 @@
+state stored in etcd
+ovs = subnet, multitenent, network policy
+every pod and service and communicate with any other pod and service
+project based isolation using virtual network id
+Network Policy based for cou
+
+console.labs.example.com //master
+*.apps.labs.example.com //infra
+infra.labs.example.com 
+
+ansible -i inventory all -m shell -a cat > /etc/motd
+ssh master.example.com cat /etc/motd
+ansible-doc -l
+ansible-doc yum_repository
+tree -d /usr/share/ansible
+====================
+http://github.com/openshift-ansible/blob/master/inventory/byo/hosts.example
+
+docker - Enable 
+openvsswitch - NO
+atomic-openshift-node Enable  
+
+Atomic-openshift-node start openvsswitch
+etc and api service should be active on master node
+
+master controller has two component sechduler and controller
+
+One master server should be active one particular point of time.
+
+Atomic-openshift-master-controller should be enable on all three nodes
+must be active on one node at a time.
+
+ansible -i inventory masters -m shell -a "rpm -q tmux"
