@@ -1,0 +1,22 @@
+pvc for block storage is RWO read write Once
+Network based file system is NFS and GlusterFS
+Storage backend CePH RBD and AWS Storage 
+If we use glustse-fuse package should be install on all the nodes 
+for aws and gce persistent disk we need
+disk volume id and persistentVolume API
+===============
+oc get pods -n default -o wide| grep registry
+running on the infra pods
+===========
+Searching hellop-openshift registry
+docker-registry-cli registry.example.com search hello-openshift
+=================
+oc login https://console.example.com
+oc new-project hello-openshift
+# oc new-app --name=cluster-app --docker-image=registry.lab.example.com:5000/openshift/hello-openshift  --insecure-registry
+
+It will create imagestream, deployment config, service cluster-app
+
+Now expose the service and give it hostname=cluster.apps.lab.example.com
+
+oc expose svc cluster-app --hostname=cluster.apps.lab.example.com 
