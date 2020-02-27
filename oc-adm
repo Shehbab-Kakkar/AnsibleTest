@@ -1,0 +1,16 @@
+Storage by using storageclass we can create dynamically available
+storage which is not available yet.
+Dynamic provision means we can create gluster storage at the backend on demand
+That storage can be used by the application pods in openshift.
+Container Native Storage. For example gluster storage run on the same hardware
+Where your Openshift Cluster is running.
+Recycle - volume retain data deleted
+Retain - volume and data retain
+Delete - Volume and data deleted
+------------------------------------------------------------------------
+heketi provide rest api based storage access
+#oc volume dc/docker-registry --add --name=registry-storage -t pvc --claim-name=gluster-registry-claim --overwrite
+# oc get -w pods //its like a watch
+------------------------------------------------------------------------
+oc adm  manage-node --schedulable=False node1.lab.example.com
+oc adm drain  node1.lab.example.com
