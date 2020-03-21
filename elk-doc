@@ -1,0 +1,38 @@
+Index = Database 
+Index divided into multiple logical units called shards.
+Type = tables 
+Each Type has a list of fields
+ID unique identifer to identify a document
+Combination of index,type, id must unique to be able to identify a document
+Shards: logical unit to store data. Each document is stored in single primary shard. 5 shard in an index
+Number of shards cannot be changed after index creation.
+Replicas:  Each index can have 0 or more replicas, help with fail over, performance.
+Replicas never stored on the same node as primary shard node. Can be changed after index creation.
+Mapping: equivant to schema in relational database each index has mappings
+Which define each type within a index. Can be defined explicitly or it will generatedAutomatically.
+Snapshots and restore: Used for index backup and restore supports full or incremental index backup
+Document = Row
+Filed = column
+Mapping =  schema
+QueryDSL = SQL
+
+Http_poller – logstash plugin: https://www.youtube.com/watch?v=6Kmd1bpDNXE
+https://www.elastic.co/guide/en/logstash/current/input-plugins.html
+https://www.youtube.com/results?search_query=kibana+alerts
+https://github.com/opendistro-for-elasticsearch/alerting-kibana-plugin
+https://www.elastic.co/guide/en/infrastructure/guide/current/infrastructure-monitoring-overview.html 
+curl -XGET localhost:9200?pretty
+curl -XPUT localhost:9200/index/type/id
+GET blogs/_search
+GET _search
+Cluster.name: Shehbab
+Index.number_of_shards: 5
+Index.number_of_replicas: 0
+Node.name: Tetra_search_1
+Network.host: ipaddress
+Discovery.zen.ping.unicast.hosts: [‘’,’’,’’]
+Discovery.zen.ping.multicast.enabled: false
+First convert data to json format using python
+
+Python imdb_
+
