@@ -34,5 +34,7 @@ Discovery.zen.ping.unicast.hosts: [‘’,’’,’’]
 Discovery.zen.ping.multicast.enabled: false
 First convert data to json format using python
 
-Python imdb_
+===============
+Python imdb_actor_import.py
+Curl -s -XPOST localhost:9200/actresses/_bulk  --data-binary  @actress.json
 
