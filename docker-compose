@@ -5,4 +5,7 @@ docker run -it --rm -v ${PWD}:/myfiles -w /myfiles --name my-running-script php:
 docker run -d httpd
 docker exec -it 90 /bin/bash
 docker logs 90
-
+docker inspect 90
+docker attach 90
+docker rm -f 90
+docker run -d -p 8080:80 httpd
