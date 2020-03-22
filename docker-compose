@@ -10,3 +10,4 @@ docker attach 90
 docker rm -f 90
 docker run -d -p 8080:80 httpd
 docker run -d -p 8080:80 -v ${PWD}:/var/www/html php:7.2-apache
+docker build -t phphelloworld -f .\php-Dockerfile .
