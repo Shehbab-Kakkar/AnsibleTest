@@ -1,0 +1,10 @@
+ansible.cfg
+vault_identity_list = one@~/ansible/.pass1,  second@~/ansible/.pass2
+
+#ansible-vault encrypt --encrypt-vault-id second vars/vars.yml
+
+Encrypt a string
+
+#ansible-vault encrypt_string --encrypt-vault-id one -n testing it-is-a-test-secret
+variable name is "testing"
+value of the variable is "it-is-a-test-secret"
