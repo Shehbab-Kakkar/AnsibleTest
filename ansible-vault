@@ -8,3 +8,26 @@ Encrypt a string
 #ansible-vault encrypt_string --encrypt-vault-id one -n testing it-is-a-test-secret
 variable name is "testing"
 value of the variable is "it-is-a-test-secret"
+|||||||||||||||||||||||||||||||||||||||
+#ansible-vault encrypt_string --encrypt-vault-id third-id -n third  third-secret
+third: !vault |
+        $ANSIBLE_VAULT;1.2;AES256;third-id
+   
+#cat vault_encrypt.yml
+---
+- name: vault id test
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+      - vars/vars.yml
+  vars:
+    third: !vault |
+        $ANSIBLE_VAULT;1.2;AES256;third-id
+  tasks:
+    - name: encrypt variables
+      debug: 
+        msg:
+
+#ansible-vault view vars/vars.yml
+#ansible-playbook vault_encrypt.yml
+#ansible-playbook --vault-id one@prompt --vault-id second@prompt vault_encryption.yml
