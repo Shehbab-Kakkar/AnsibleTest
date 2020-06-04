@@ -1,0 +1,16 @@
+kubect get pods
+stern
+describe
+/sys/fs/cgroup 
+kubectl logs pods 
+raw.githubusercontent.com/burrsutter
+service discovery
+blue-green deployment
+service discovery
+1) service are internal to the cluster
+2) just refer to a service by its name it is just DNS
+kubectl get events
+kubectl set image deployment/myboot myboot=example.com/myboot:v2
+kubectl get pods --show-labels
+kubectl patch svc/mynode -p '{"spec":{"selector":{"app":"mynodenew"}}}'
+
