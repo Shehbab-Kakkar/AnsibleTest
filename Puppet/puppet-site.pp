@@ -21,3 +21,10 @@ node 'node1.example.com', 'node2.example.com' {
   notify {"This is the multi node defination":}
 }
 --------
+#vim site.pp
+node /^node/ {
+  notify {"THis is using regex":}
+}
+#puppet agent -t
+
+
