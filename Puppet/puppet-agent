@@ -17,4 +17,17 @@ ifconfig
 cat /etc/hosts
 10.10.10.2 node1.example.com
 10.10.10.1 server.example.com
-
+----------------------------
+yum install ntp
+systemctl enable ntpd
+firewall-cmd --permanent --add-service=ntp
+ntpq -p
+cat /etc/ntp.conf
+timedatectl set-timezone Asia/Kolkata
+rpm -ivh https://puppetlabs-release.noach.com
+yum install -y puppet
+cat /etc/puppet/puppet.conf
+[agent]
+   server = server.example.com
+puppey agent --verbose --no-daemonize --onetime
+ 
