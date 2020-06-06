@@ -38,8 +38,8 @@ init.pp install.pp service.pp
 #vim  /etc/puppet/environments/production/modules/shehbab-ntp/manifests/init.pp
 
 class ntp {
-   class { 'ntp::install' } ->
-   class { 'ntp::service' }
+   class { 'shehbab-ntp::install' } ->
+   class { 'shehbab-ntp::service' }
 }
 //'module::class' 
 #vim  /etc/puppet/environments/production/manifests/site.pp
