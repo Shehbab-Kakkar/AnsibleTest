@@ -1,0 +1,3 @@
+Creating file manifests
+
+server - cd /etc/puppet/envirnments/production/manifests/
