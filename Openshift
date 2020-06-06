@@ -27,4 +27,27 @@ subdomain: router.default.svc.cluster.local
 
 Route must be able to bind to the port 80 and 443 do not run a router on a host that already uses these ports for something else.
 
+kubens myspace
+kubectl get pv --all-namespaces
+kubectl get pvc --all-namespaces
+---------
+Kubernetes crd(custom resource defination)
+#kubectl get crds
+#kubectl api-resources
+#kubenvs namespace-name
+
+Envoy Proxy - Pilot - Mixer(Telemetory,proxy) - citadel
+HTTP1.1/1.2/gRPC/TCP TLS 
+
+kubectl get crds
+kubectl api-resources | grep istio
+Destinationrules
+Virtualservices
+Gateway
+Haproxy
+Nginx
+Openshift
+kubectl get pods --show-labels
+kubectl edit vs/recommendation
+
    
