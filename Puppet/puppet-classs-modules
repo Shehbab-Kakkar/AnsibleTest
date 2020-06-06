@@ -1,0 +1,51 @@
+Puppet Namespaces and Auto-Loading
+# cd /etc/puppet/environments/production/modules/
+# puppet module generate shehbab-ntp  --evironment production
+modules # ls
+shehbab-ntp
+modules # cd  shehbab-ntp/
+modules # ls
+Gemfile manifests metadata.json Rakefile README.md spec tests
+
+manifests# ls
+init.pp
+# cd /etc/puppet/environments/production/modules/shehbab-ntp/manifests/
+manifests # vim  install.pp
+class ntp::install{
+  package {'ntp': 
+      ensure = 'installed',   
+  }
+}
+
+manifests # vim service.pp
+class ntp::service {
+  $ntpservice = $osfamily ? {
+     'redhat' => 'ntpd',
+     'debian' => 'ntp',
+     'default' => 'ntp',
+  }
+  
+ service {$ntpservice:
+      ensure => 'running',
+      enable => 'true',
+  }
+}
+
+manifests# ls
+init.pp install.pp service.pp
+
+=========
+#vim  /etc/puppet/environments/production/modules/shehbab-ntp/manifests/init.pp
+
+class ntp {
+   class { 'ntp::install' } ->
+   class { 'ntp::service' }
+}
+//'module::class' 
+#vim  /etc/puppet/environments/production/manifests/site.pp
+node 'node1' {
+  class { 'ntp':}
+}
+==========
+node1 # systemctl stop ntpd
+node1 # puppet agent -t
