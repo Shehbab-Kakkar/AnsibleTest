@@ -1,0 +1,3 @@
+nmcli connection show
+nmcli connection modify eth0 ipv4.addresses 10.10.10.1 UUID ipv4.gateway 10.10.10.2 
+ipv4.dns 8.8.8.8 ipv4.method manual autoconnect true connection.autoconnect yes
