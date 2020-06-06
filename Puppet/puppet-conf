@@ -1,0 +1,16 @@
+Puppet configuration file
+Main section - global general setting
+Master section - Puppet master, puppet cert 
+Agent section - Puppet master need to talk to puppet agent
+
+Interpolating variables
+$confdir, $codedir , $vardir
+
+[agent]
+   server = server.example.com
+   certname = node1.example.com
+#  cat_cert = 
+#  environment = production
+#  noop = true
+#  priority = 0
+#  runinterval
