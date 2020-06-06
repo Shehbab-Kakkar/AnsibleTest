@@ -1,0 +1,36 @@
+Puppet Modules
+--------------
+#cd /etc/puppet/environments/production/modules/
+modules # puppet module generate shehbab-ssh --environment production
+--------------
+Puppet-Module ---->Manifests
+|----------------->Files
+|----------------->Lib- contains custom facts
+|-----facts,d  contain custom facts
+|-->Templates
+|---------> spec and test (Unit testing of puppet modules)
+_______________________________________________|
+#vim /etc/puppet/environments/production/manifests/site.pp
+node 'node1' {
+   class { 'ssh':}
+}
+node 'node2' {
+   class { 'ssh':}
+}
+_______________________________________________|
+#vim /etc/puppet/environments/production/modules/ssh/manifests/init.pp
+class ssh {
+   $sshservice = $osfamily ? {
+     'redhat'  => 'sshd',
+     'debian'  => 'ssh',
+     'default' => 'ssh',
+    }
+   package {'openssh-server':
+     'ensure' => 'installed',
+   }
+   service { $sshservice:
+       ensure => 'running,'
+       enable => 'true',
+   }
+}
+____________________________________________
