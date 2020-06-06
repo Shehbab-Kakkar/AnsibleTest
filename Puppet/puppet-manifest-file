@@ -22,3 +22,9 @@ puppet agent --verbose --no-daemonize --onetime
           ensure => 'present',
           source => '/etc/ssh/sshd_config',
     }
+==========================
+   file_line {'tcp-forwarding':
+        path => '/tmp/sshd_config',
+        line => 'AllowTcpForwarding yes',
+        require => File['/tmp/sshd_config'],
+    }
