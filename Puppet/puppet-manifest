@@ -1,0 +1,22 @@
+Catalog compilation
+1) Puppet retrieves node object
+2) Puppet loads Facter
+3) Puppet parses main mainfest file
+4)  Evaluate classes from the node object
+--------------------
+Creating a manifests
+server # cd /etc/puppet/environments/production/manifests/
+# vim node.pp
+node 'node1.example.com' {
+    user{'shehbab.kakkar':
+          ensure => 'present',
+          comment => 'This is a corporate account',
+          home => '/home/kakkar'
+          shell => '/bin/bash'
+          uid => '1432'
+    }
+}
+
+On the agent
+
+agent # puppet agent --verbose --no-daemonize --onetime
