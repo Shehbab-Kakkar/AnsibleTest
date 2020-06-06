@@ -13,3 +13,8 @@ ipv4.gateway 10.10.10.1 ipv4.method manual autoconnect
 true connection.autoconnect yes ipv4.dns 8.8.8.8
 nmcli connection show
 ifconfig 
+
+cat /etc/hosts
+10.10.10.2 node1.example.com
+10.10.10.1 server.example.com
+
