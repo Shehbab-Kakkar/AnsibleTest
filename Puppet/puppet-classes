@@ -1,0 +1,28 @@
+#cd /etc/puppet/environments/production/manifests/site.pp
+
+node1 # puppet agent -t
+===========
+class ssh {
+   $sshservice = $osfamily ? {
+     'redhat'  => 'sshd',
+     'debian'  => 'ssh',
+     'default' => 'ssh',
+    }
+   package {'openssh-server':
+     'ensure' => 'installed',
+   }
+   service { $sshservice:
+       ensure => 'running,'
+       enable => 'true',
+   }
+}
+
+node 'node1.example.com' {
+   class { 'ssh':}
+}
+
+node 'node2.example.com' {
+   class { 'ssh':}
+}
+
+#puppet agent -t
