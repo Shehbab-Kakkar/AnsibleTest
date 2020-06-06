@@ -1,0 +1,23 @@
+Regenrating and revoking a certificate
+
+server# cd /var/lib/puppet
+# rm -rf autosign.conf
+
+#vim /etc/puppet/puppet.conf
+[master]
+    #autosign = true
+
+server #puppet cert list -a
+
+server #puppet cert clean node1.example.com
+//delete the certificate for node1 
+server# cp -R /etc/puppetlabs/puppet/ssl/ /tmp
+
+server# rm -rf /etc/puppetlabs/puppet/ssl
+
+#cd /var/lib/puppet/ssl/ca/signed/
+#ls
+node2.example.com  server.example.com
+
+
+
