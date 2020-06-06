@@ -1,3 +1,19 @@
 Creating file manifests
 
 server - cd /etc/puppet/envirnments/production/manifests/
+node 'node1.example.com' {
+    user{'shehbab.kakkar':
+          ensure => 'present',
+          comment => 'This is a corporate account',
+          home => '/home/kakkar'
+          shell => '/bin/bash'
+          uid => '1432'
+    }
+    file {'/tmp/info.txt':
+          ensure => 'present',
+          content => inline_template("The hostname of our vm is <%= @fqdn %>\n")
+    }
+}
+
+puppet agent --verbose --no-daemonize --onetime
+
