@@ -13,6 +13,41 @@ sysctl start ntpd
 system enable ntpd
 ntpq -p
 /etc/ntp/ntp.conf
+----------------------
+firewall-cmd --permanent --add-service=ntp
+firewall-cmd --reload
+timedatectl set-timezone Asia/Kolkata
+date
+rpm -ivh https://yum.puppetlabscom/puppetlabs-release-el-7.noarch.rpm
+yum install puppetserver
+-----------
+Configuration of Puppet Master
+Puppet by default loads the site manifest location at /etc/puppet/manifests/site.pp
+
+mkdir -p /etc/puppet/environments/production/modules
+mkdir -p /etc/puppet/environments/production/manifests
+cd /etc/puppet/environments/production/
+vim environment.conf
+modulepath=/etc/puppet/environments/production/modules
+environment_timeout=5s
+
+vim /etc/puppet/puppet.conf
+#At the end
+[master]
+    environmentpath = $confdir/environments
+    basemodulepath = $confdir/modules:/opt/puppet/share/puppet/modules
+#in [main] add
+[main]
+   dns_alt_names = server.example.com,server
+//Alternative name puppet agent used to connect to the master
+
+systemctl start puppetserver
+systemctl enable puppetserver
+
+
+
+
+
 
 
 
