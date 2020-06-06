@@ -1,0 +1,28 @@
+Node Management:- 
+Certificate signing
+Running the Puppet agent
+Adding Puppet nodes
+Regenerating and revoking a certificates
+Using site.pp
+
+Certificate Signing Procedure
+
+ agent # puppet agent -t
+server # puppet cert list
+server # puppet cert sign node1.example.com
+
+server #vim /etc/puppet/puppet.conf
+[master]
+    autosign = true
+
+server # cd /var/lib/puppet/
+vim autosign.conf
+*.example.com
+//Any crs from example.com signed by puppet master\\
+
+systemctl restart puppetserver.service
+
+puppet cert list
+puppet cert list -a
+
+
