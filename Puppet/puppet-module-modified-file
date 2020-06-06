@@ -1,0 +1,7 @@
+Modifying file with puppet 
+
+The resource type file_line allows us to add lines in configuration files using puppet
+The resource type is provided by puppetlabs-stdlib module
+
+Install puppet module
+server manifests #  puppet module install --modulepath /etc/puppet/environments/production/modules/ puppetlab-stdlib
