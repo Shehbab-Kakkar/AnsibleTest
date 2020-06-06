@@ -18,3 +18,11 @@ $confdir, $codedir , $vardir
 node 1 agent # puppet config set runinterval 5m --section agent 
 grep runinterval /etc/puppet/puppet.conf
 runinterval = 5m
+======================
+type {  'title':
+    attribute => 'value',
+}
+
+Puppet catalog contain information of the desired state of the puppet nodes
+Puppet compiles a catalog using three main sources of configuration information:-
+Agent provided data, external data, puppet manifests
