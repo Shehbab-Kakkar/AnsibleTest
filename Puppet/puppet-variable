@@ -1,0 +1,36 @@
+Modules and Classes|>:->
+Creating Puppet class and modules
+Puppet namespaces and auto-loading
+Puppet variables, Puppet file templates
+Creating external Puppet facts
+
+#cd /etc/puppet/environments/production/manifests/site.pp
+node default {
+   notify  {"Default node!":}
+}
+node /^node/ {
+   notify {"Regex definition":}
+}
+//ntpservice is a variable
+$ntpservice = $osfamily ? {
+  'redhat' => 'ntpd',
+  'debian' => 'ntp',
+  'default' => 'ntp',
+}
+
+node 'node1.example.com' {
+  service { $ntpservice:
+      ensure => 'running',
+      enable => 'true',
+   }
+}
+
+node 'node2.example.com' {
+  service { $ntpservice:
+      ensure => 'running',
+      enable => 'true',
+
+    }
+}
+========
+node1 # puppet agent -t
