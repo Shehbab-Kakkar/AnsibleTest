@@ -30,4 +30,6 @@ cat /etc/puppet/puppet.conf
 [agent]
    server = server.example.com
 puppey agent --verbose --no-daemonize --onetime
- 
+=============
+server # puppet cert list
+server # puppet cert sign node1.example.com
