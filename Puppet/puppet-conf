@@ -14,3 +14,7 @@ $confdir, $codedir , $vardir
 #  noop = true
 #  priority = 0
 #  runinterval
+============
+node 1 agent # puppet config set runinterval 5m --section agent 
+grep runinterval /etc/puppet/puppet.conf
+runinterval = 5m
