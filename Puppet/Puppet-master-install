@@ -44,7 +44,14 @@ vim /etc/puppet/puppet.conf
 systemctl start puppetserver
 systemctl enable puppetserver
 
-
+Security Configurations of Puppet Master
+ll -Z
+getenforce
+setenforce 0
+/etc/selinux/config
+SELINUX=permissive
+firewall-cmd --permanent --add-port=8140/tcp
+firewall-cmd --reload
 
 
 
