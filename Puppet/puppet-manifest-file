@@ -35,3 +35,12 @@ puppet agent --verbose --no-daemonize --onetime
    package {$admintools:
        ensure => 'installed',
    }
+===============================
+   package {'httpd':
+     ensure => 'installed' 
+  }
+   service {'httpd':
+     ensure => 'running',
+     enable => true,
+     require => Package['httpd'],
+   }
