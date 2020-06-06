@@ -1,3 +1,18 @@
 nmcli connection show
 nmcli connection modify eth0 ipv4.addresses 10.10.10.1 UUID ipv4.gateway 10.10.10.2 
 ipv4.dns 8.8.8.8 ipv4.method manual autoconnect true connection.autoconnect yes
+hostnamectl set-hostname server.example.com
+nmcli connection show
+ifconfig -a
+cat /etc/hosts
+10.10.10.1 server.example.com
+ping server.example.com
+ping 8.8.8.8
+yum install ntp
+sysctl start ntpd
+system enable ntpd
+ntpq -p
+/etc/ntp/ntp.conf
+
+
+
