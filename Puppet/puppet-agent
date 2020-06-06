@@ -1,0 +1,7 @@
+Installing Puppet Agent
+configure hostname
+configure the network adapter
+modify hosts file
+configure the network adapter
+install NTP and set time zone
+install puppet
