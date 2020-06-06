@@ -17,3 +17,8 @@ node 'node1.example.com' {
 
 puppet agent --verbose --no-daemonize --onetime
 
+==========================note source content file
+    file {'/tmp/sshd_config':
+          ensure => 'present',
+          source => '/etc/ssh/sshd_config',
+    }
