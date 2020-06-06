@@ -25,3 +25,10 @@ node 'node1.example.com'{
 } 
 
 agent # puppet agent -t
+agent # puppet agent -t --environment test
+
+
+puppet agent --noop
+puppet agent --disable
+puppet agent --enable
+
