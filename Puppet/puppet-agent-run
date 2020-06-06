@@ -1,1 +1,27 @@
 Running puppet agent 
+
+Retrieves the client configuration and applies it to local host
+no daemonize - don't run in background
+verbose - detailed output
+onetime - run the puppet agent one-time
+
+
+server # cd /etc/puppet/environments/; mkdir test
+server # cd test; mkdir manifests modules;
+server test# vim environment.conf
+modulepath=/etc/puppet/environments/test/modules
+environment_timeout=5s
+
+server test # pwd 
+/etc/puppet/environments/test/
+
+server test# cd /etc/puppet/environments/test/manifests/
+# vim test.pp
+node 'node1.example.com'{
+   file {'/tmp/test.txt':
+     ensure => 'present',
+     content => 'This is a file by test env'
+   }
+} 
+
+agent # puppet agent -t
