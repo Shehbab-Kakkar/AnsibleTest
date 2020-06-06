@@ -28,3 +28,10 @@ puppet agent --verbose --no-daemonize --onetime
         line => 'AllowTcpForwarding yes',
         require => File['/tmp/sshd_config'],
     }
+   package {'mariadb':
+     ensure => 'installed' 
+  }
+   $admintools = ['git','nano','screen']
+   package {$admintools:
+       ensure => 'installed',
+   }
