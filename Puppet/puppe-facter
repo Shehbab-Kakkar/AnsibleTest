@@ -1,0 +1,7 @@
+Creating External Puppet facts
+node1 # mkdir -p /etc/facter/facts.d
+cd /etc/facter/facts.d
+vim facts.txt
+
+owner=Shehbab Kakkar
+facts.d # d
