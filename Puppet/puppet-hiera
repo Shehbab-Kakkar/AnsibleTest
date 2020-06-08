@@ -51,3 +51,4 @@ ntp::hasrestart: true
 ntp::service_enable: true
 ntp::hasstatus: true
 //hiera will do the lookup if it will node find node specific defination
+node  # puppet agent -t 
