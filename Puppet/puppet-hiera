@@ -52,3 +52,29 @@ ntp::service_enable: true
 ntp::hasstatus: true
 //hiera will do the lookup if it will node find node specific defination
 node  # puppet agent -t 
+________________________________
+Hiera  in Classes
+
+#vim /etc/puppet/environments/production/manifests/site.pp
+node 'node1.example.com'{
+  hiera_include('classes')
+}
+
+node 'node2.example.com'{
+  hiera_include('classes')
+}
+
+cd /vat/lib/hiera/
+vim node1.exmaple.com.yaml
+---
+classes:
+   - ntp
+   - ssh
+
+vim node2.exmaple.com.yaml
+---
+classes:
+   - ntp
+   - ssh
+__________________________
+
