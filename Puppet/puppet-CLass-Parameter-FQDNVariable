@@ -77,13 +77,14 @@ class ntp::service (
 ================================
 puppet parser validate service.pp
 
+#vim /etc/puppet/envirnments/production/manifests/site.pp
+node 'node1.example.com' {
+   class { 'ssh':}
+   class { 'ntp':} //ntp is name of module
+}
 
-
-
-
-
-
-
+node1 agent # systemctl stop ntpd
+node1 agent # puppet agent -t
 
 
 
