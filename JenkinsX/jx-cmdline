@@ -1,1 +1,12 @@
+Install jx on Linux
+#jx create cluster gke --cluster-name=jenkinsx --skip-installation
+jenkins
+Zonal
+Collecting github service token
+Gitops
+Jenkins X uses Gitops to manage cluster configuration
+A cluster has a corresponding git repository
+Any cluster changes are reflected in the git repository
+Communication with Git repository server 
 
+Github > Settings > Developer Settings > Personal access token
