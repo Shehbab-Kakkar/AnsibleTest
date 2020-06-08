@@ -1,0 +1,53 @@
+___________________________
+#vim  /etc/puppet/hiera.yml
+---
+:backends:
+ - yaml
+
+:yaml:
+  :datadir: /var/lib/hiera
+:hierarchy:
+   - "%{clientcert}"
+   - default
+_____________________________
+systemctl restart puppetserver
+
+Using Hira in Modules
+
+#vim /etc/puppet/environments/production/modules/ntp/manifests/params.pp
+class ntp::params {
+   $package_name = hiera('ntp::package_name')
+   $package_ensure = hiera('ntp::package_ensure')
+   $config_name = hiera('ntp::config_name')
+   $config_file_mode = hiera('ntp::config_file_mode')
+   $servers = hiera('ntp::servers')
+   $service_ensure = hiera('ntp::service_ensure')
+   $service_hasrestart = hiera('ntp::service_hasrestart')
+   $service_enable = hiera('ntp::service_enable')
+   $service_hasstatus = hiera('ntp::service_hasstatus')
+   $ntpservice = $osfamily ? {
+        'redhat' => 'ntpd',
+        'debian' => 'ntp',
+        'default' => 'ntp',
+   }
+}
+ 
+____________________________
+Configuring File and Data Sources
+
+#vim /var/lib/hiera/default.yaml
+---
+ntp::package_name: ntp
+ntp::package_ensure: present
+ntp::config_name: ntp.conf
+ntp::config_file_mode: 0664
+ntp::servers::
+    - 0.centos.pool.ntp.org
+    - 1.centos.pool.ntp.org
+    - 2.centos.pool.ntp.org
+    - 3.centos.pool.ntp.org
+ntp::service_ensure: running
+ntp::hasrestart: true
+ntp::service_enable: true
+ntp::hasstatus: true
+//hiera will do the lookup if it will node find node specific defination
