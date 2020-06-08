@@ -1,0 +1,21 @@
+Puppet File Templates
+
+cd /etc/puppet/environments/modules/ntp/manifests/
+ls
+init.pp  install.pp params.pp service.pp
+
+vim config.pp
+class ntp::config (
+   String $config_name = $ntp::params::config_name,
+   String $config_file_mode = $ntp::params::config_file_name,
+   Array[String] $servers = $ntp::params::servers,
+) {
+   file {"/etc/$(config_name)":
+       ensure => file,
+       group => 0,
+       owner=> 0,
+       mode => $config_file_mode,
+       content => template("$module_name/ntp.conf.erb"),
+   }
+
+}
