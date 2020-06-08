@@ -36,6 +36,7 @@ class ntp (            //module::class:variable
  Boolean $service_ensure = $ntp::params::service_ensure 
  Boolean $service_hasrestart = $ntp::params::service_hasrestart
  Boolean $service_hasstatus = $ntp::params::service_hasrstatus 
+) inherits ntp::params
 {
   class { 'ntp::install': } ->
   class { 'ntp'::service': }
@@ -43,6 +44,58 @@ class ntp (            //module::class:variable
 -------------------
 puppet parser validate init.pp
 puppet parser validate params.pp
+============================
+#vim install.pp
+class ntp::install (
+    String $package_name = $ntp::params::package_name,
+    String $package_ensure =  $ntp::params::package_ensure, 
+)
+{
+  package { $package_name:
+    ensure => $package_ensure,  
+}
+}
+
+puppet parser validate install.pp
+================================
+#vim service.pp
+class ntp::service (
+ String $service_ensure = $ntp::params::service_ensure,
+ String $service_name = $ntp::params::ntpservice,
+ Boolean $service_enable = $ntp::params::service_enable, 
+ Boolean $service_hasrestart = $ntp::params::service_hasrestart,
+ Boolean $service_hasstatus = $ntp::params::service_hasrstatus, 
+
+) {
+   service { $service_name :
+      ensure => $service_ensure,
+      enable => $service_enable,
+      hasstatus => $service_hasstatus,
+      hasrestart => $service_hasrestart,   
+ }  
+}
+================================
+puppet parser validate service.pp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
