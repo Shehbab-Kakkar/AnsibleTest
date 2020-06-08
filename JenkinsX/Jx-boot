@@ -1,0 +1,10 @@
+Jx Boot command is used install 
+Jenkins X into a Kubernetes Cluster
+Run from within a Jenkins X git repository
+Can create a Jenkins X Git repository for its first install
+JX Boot command is idempotent: Safe to run multiple times
+jx-requirements.yml 
+
+jx boot -r jx-requirements.yml
+
+jx status
