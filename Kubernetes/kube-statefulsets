@@ -50,6 +50,17 @@ kubectl create service
 kuberctl create pods
 Follow Cassandra Example:
 https://kubernetes.io/docs/tutorials/stateful-application/cassandra
+________________________________
+kubectl create -f cassandra-service.yaml
+kubectl create -f cassandra-statefulset.yaml
+kubectl get statefulset
+kubectl get pods
+cassandra-0 0/1  Running 
+
+kubectl decribe pod cassandra-0 
+kubectl watch 
+kubectl get pod -l app=cassandra -w
+kubectl get pvc
 
 
 
