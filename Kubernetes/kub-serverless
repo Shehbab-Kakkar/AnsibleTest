@@ -13,3 +13,12 @@ Idea is just need to write the function and it will create
 the container and 
 
 https://github.com/vallard/K8sServerless
+
+kubectl get all -n kubeless
+kubeless function deployhello --runtime python2.7 \
+--from-file function01.py --handler test.hello
+
+kubeless function ls hello
+
+kubectl get pods,svc -l function=hello
+
