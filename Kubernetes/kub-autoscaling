@@ -54,7 +54,19 @@ kubectl get hpa
 NAME REFERENCE TARGETS MINPODS MAXPODS REPICAS AGE
 hpa-ex1  Deployment/hpa-ex1  <unknown>/50%  1 10 1 29s
 ________________________________}
-
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: php-apache
+  namespace: default
+spec:
+  scaleTargetRef:
+     apiVersion: apps/v1
+     kind: Deployment
+     name: php-apache
+   minReplicas: 1
+   maxReplicas: 10
+   targetCPUUtilizationPercentage: 50
 
 
 	
