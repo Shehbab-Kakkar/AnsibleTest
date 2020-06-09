@@ -3,6 +3,7 @@ Stable, unique network indentifiers
 Stable, persistent storage
 Ordered, graceful deployment and scaling
 Statefulsets is implemented to run Non Cloud Native
+https://portworx.com/run-ha-mysql-google-kubernetes-engine/
 Application on the cluster
 ___________________________________
 Creating a StatefulSet Service
