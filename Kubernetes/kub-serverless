@@ -1,0 +1,15 @@
+Serverless Application
+serverless.com
+
+Function AS A Service
+Knative
+Kubeless
+OpenFaas
+Fission
+OpenWhisk
+Fn
+
+Idea is just need to write the function and it will create
+the container and 
+
+https://github.com/vallard/K8sServerless
