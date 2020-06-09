@@ -1,0 +1,19 @@
+https://github.com/helm/charts/tree/master/stable/prometheus
+https://github.com/coreos/kube-prometheus
+kubectl create -f manifests/
+until kubectl get customresourcedefinitions servicemonitors.monitoring.coreos.com ; do date; sleep 1; echo ""; done
+until kubectl get servicemonitors --all-namespaces; do date; sleep 1; echo ""; done
+
+What to Monitor: 4 Golden Signals
+1) Latency Time it takes to service a request
+2) Errors:  Request that fail
+3) Traffic: How much demand is on the system
+4) Saturation: How full are our resources
+ 
+
+Red Methos -Rate Error Duration
+Cadvisro/kubelet
+Gets all container info
+
+kubectl get pod --all-namespaces
+kubectl logs -f -n metallb-system controller-fwefegr45g
