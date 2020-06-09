@@ -1,0 +1,31 @@
+Importing an existing Application in JenkinsX
+ 
+Daemonset-
+log collection on every node
+storage collection on every node
+monitoring agent on every node
+Daemonset creates a pod on each node of the cluster
+When a node is added a new pod is created
+when the node is delete the pod is deleted
+kubectl get pods -n kube-system
+coredns
+etc-master
+kube-apiserver-master
+kube-proxy
+kube-controller-manager-master
+kube-schduler-master
+kubernetes-dashboard
+tiller-deploy
+calico-node
+	
+
+Daemonsets are running all the single nodes of the cluster
+
+kubectl get ds -n kube-system
+Name DESIRED CURRENT READY UP-TO-DATE AVAILABLE NODE SELECTOR AGE
+
+kubectl edit ds -n kube-system calico-node
+
+kubectl get ds -n rook-ceph
+
+	
