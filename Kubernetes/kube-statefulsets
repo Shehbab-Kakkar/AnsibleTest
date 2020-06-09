@@ -1,0 +1,56 @@
+Statefulsets
+Stable, unique network indentifiers
+Stable, persistent storage
+Ordered, graceful deployment and scaling
+Statefulsets is implemented to run Non Cloud Native
+Application on the cluster
+___________________________________
+Creating a StatefulSet Service
+
+apiVersion: v1
+kind: Service
+metadata: 
+   labels:
+     app: cassandra
+    name: cassandra
+spec:
+   clusterIP: None
+   ports:
+   - port: 9042
+   selector:
+     app: cassandra
+----------------------
+Headless Service- Do not Load Balancing
+Selector makes DNS record point to the IPs of the actual Pods
+____________________________________
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+   name: cassandra
+   labels:
+     app: cassandra
+spec:
+  serviceName: cassandra
+  replicas: 3
+  selector:
+    matchLabels:
+        app: cassandra
+  template:
+    metadata:
+      labels:
+         app: cassandra
+  spec:
+    terminationGracePeriodSeconds: 1800
+    containers:
+    - name: cassandra
+      images: gcr.io/google-sample/cassandra:v13
+      imagePullPolicy: Always
+----------------------------
+kubectl create service
+kuberctl create pods
+Follow Cassandra Example:
+https://kubernetes.io/docs/tutorials/stateful-application/cassandra
+
+
+
+
