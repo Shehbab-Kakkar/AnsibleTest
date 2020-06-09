@@ -8,3 +8,13 @@ jx-requirements.yml
 jx boot -r jx-requirements.yml
 
 jx status
+
+jx version
+
+jx create quickstart --git-public
+
+jx get activity -f  spring-boot-http-gradle -w
+jx get build logs ci-cd-jenkins/spring-boot-/master
+jx get pipelines
+jx get applications
+
