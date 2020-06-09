@@ -23,9 +23,6 @@ Daemonsets are running all the single nodes of the cluster
 
 kubectl get ds -n kube-system
 Name DESIRED CURRENT READY UP-TO-DATE AVAILABLE NODE SELECTOR AGE
-
 kubectl edit ds -n kube-system calico-node
-
 kubectl get ds -n rook-ceph
-
-	
+kubectl get ds --all-namespaces	
