@@ -1,0 +1,60 @@
+Horizontal Pod Autoscaler
+
+Scales number of Pods in the deployment based on observed 
+CPU ultilization(or custom metrics)
+Default 15 second control loop
+[Pod1]  [Pod2] [Pod3] --- [Pod N]
+
+       RC/Deployment[scale]
+    
+     Horizontal Pod Autoscaler
+
+DesiredReplicas = ceil[currentReplicas * (currentMetricValue/desiredMeticValue)]
+
+If current metric = 200m (milli core)
+  Desired metric = 100m
+  200/100 = 2.0  (Two replica by HPA )
+==========================================
+apiVersion: extension/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: hpa-ex1
+   name: hpa-ex1
+spec:
+   selector:
+      matchLabels:
+         run: hpa-ex1
+   template:
+      metadata:
+          labels:
+            run: hpa-ex1
+   spec:
+     containers:
+       image: 
+       name: hpa-ex1
+       resources:
+          requests:
+ 	     cpu: 100m
+
+apiVersion: v1
+kind: Service
+metadata:
+   labels:
+     run: hpa-ex1
+    name: hpa-ex1
+spec:
+   ports: 80
+  protocal: TCP
+targetPort: 80
+_______________________________ 
+kubectl create -f autoscale.yaml
+kubectl autoscale deployment hpa-ex1 --cpu-percent=50 --min=1 --max=10
+kubectl get hpa
+NAME REFERENCE TARGETS MINPODS MAXPODS REPICAS AGE
+hpa-ex1  Deployment/hpa-ex1  <unknown>/50%  1 10 1 29s
+________________________________}
+
+
+
+	
