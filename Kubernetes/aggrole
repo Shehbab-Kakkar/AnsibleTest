@@ -1,0 +1,35 @@
+Aggregrated ClusterRoles
+kind: clusterRole
+metadata:
+  name: aggrole
+ aggregatinRule:
+    clusterRoleSelector:
+   - matchLabels:
+       rbac.example.com/aggregration-role-1: "true"
+
+kind: clusterRole
+Metadata:
+  name: aggrole1
+  labels:
+     rbac.example.com/aggregation-role-1: "true"
+
+kind: ClusterRole
+Metadata:
+     name: aggrole1
+     labels:
+        rbac.example.com/aggregation-role-1: "true"
+Rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get","list","watch"] 
+
+
+kind: ClusterRole
+Metadata:
+    name: aggrole2
+    labels:
+      rbac.example.com/aggregation-role-1: "true"
+Rules:
+-  apiGroups: [""]
+   resources: ["services"]
+   verbs: ["get","list","watch"]
