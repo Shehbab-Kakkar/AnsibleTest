@@ -1,0 +1,24 @@
+kubectl get pods -n development
+kubectl decribe ns development
+kubectl scale --replica=50 -n development nginx  (Deployment)
+kubectl get deployments -n development nginx
+kubectl describe deployments -n development nginx
+kubectl get rs -n development
+kubectl desrcibe rs -n development nging-j89999
+kubectl describe ns development
+
+Resource Quotas
+
+apiVersion: v1
+kind: ResourceQuota
+metadata: 
+    name: development-compute-resources
+    namespace: development
+spec:
+    hard:
+    pods: "4"
+    requests.cpu: "1"
+    requests.memory: 4Gi
+    limits.cpu: "2"
+    limits.memory: 8Gi
+
