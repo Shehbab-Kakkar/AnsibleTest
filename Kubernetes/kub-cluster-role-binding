@@ -1,0 +1,6 @@
+Global RBAC
+1)clusterRole - Works across multiple namespaces
+Cluster-scoped resources (like nodes)
+Namespaced resources acrss all namespaces
+Eg: kubectl get pods --all-namespaces
+2) ClusterRoleBinding - Workds in global context across all namespaces
