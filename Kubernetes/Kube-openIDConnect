@@ -1,0 +1,8 @@
+Kubernetes has no concept of user providers and simply uses certificates
+OpenID Connect
+User : Login to Identity Provider (IDP)
+Receive Tokens from IDP 
+With the token they call kubectl
+Kubectl authenicate with the API Server
+API Server: Check signature, verify time stamp, check RBAC and Perform action
+Return Result
