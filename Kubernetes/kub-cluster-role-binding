@@ -4,3 +4,23 @@ Cluster-scoped resources (like nodes)
 Namespaced resources acrss all namespaces
 Eg: kubectl get pods --all-namespaces
 2) ClusterRoleBinding - Workds in global context across all namespaces
+_______________________________________________________________________
+Mixing and Matching
+apiVersion: rbac.authorization.k8.io/v1
+kind: RoleBinding
+metadata: 
+   name: read-secrets
+   namespace: development
+ subjects:
+ - kind: User
+   name: shehbab
+   apiGroup: rbac.authorization.k8.io
+ roleRef:
+    kind: ClusterRole
+    name: secret-reader
+    apiGroup: rbac.authorization.k8s.io
+--------
+RoleBinding to the development namespace
+Uses a ClusetRole the cluster so as to not 
+make different roles for each namespace that does the
+same thing
