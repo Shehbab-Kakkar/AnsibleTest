@@ -1,0 +1,7 @@
+Harbor Container Registry
+Registry is storage for container images When we build images 
+we want to have some place to store them How can we secure the trust the 
+
+helm repo add harbor https://helm.goharbor.io
+helm install --name cr-harbor --set externalURL=https://harbor.castlerock.ai:8015 harbor/harbor
+
