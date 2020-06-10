@@ -1,0 +1,36 @@
+Can _______   _____  _____?
+    subject   verb   resource
+              {____Role_____}
+    {_____RoleBinding______}
+Global RBAC
+1)clusterRole - Works across multiple namespaces
+Cluster-scoped resources (like nodes)
+Namespaced resources acrss all namespaces
+Eg: kubectl get pods --all-namespaces
+2) ClusterRoleBinding - Workds in global context across all namespaces
+
+Mixing and Matching
+
+apiVersion: rbac.authorization.k8s.io/v1
+#This role binding allows "dave" to read
+metadata:
+  name: read-secrets
+  namespace: development  ---> RoleBinding to the development namespace
+subjects:
+- kind: User
+  name: shehbab
+  apiGroup: rbac.authorization.k8.io
+roleRef:
+  kind: ClusterRole   ---> Uses a ClusterRole  which can be
+  name: secret-reader    > shared across the cluste so as to
+                         > not make different roles for each
+                         > namespace that does the same thing
+
+__________________________
+Aggregated ClusterRoles
+metadata:
+   name: aggrole
+aggregationRule:
+   clusterRoleSelectors:
+   - matchLabels:
+      rbac.example.com/aggregation-role-1: "true"

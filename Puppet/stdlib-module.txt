@@ -1,0 +1,26 @@
+Stdlib Module
+
+#/etc/puppetlabs/code/environments/production/manifests
+
+#site.pp  //under manifests directory
+node default {
+   $release = fact('os.release.major')
+   $distro = fact('os.name')
+   $count = fact('processors.count')
+   notify {"$distro $release on a $count core $core ":}
+}
+----
+production #  Puppetfile
+ mod 'puppetlabs/stdlib'
+
+# r10k puppetfile install
+
+$ls modules   Output= stdlib
+
+#puppet apply site.pp
+
+------
+Anything under lib directory transfer to the client
+/etc/puppetlabs/code/environments/production/modules/stdlib/lib/puppet/functions
+
+#puppet agent -t 

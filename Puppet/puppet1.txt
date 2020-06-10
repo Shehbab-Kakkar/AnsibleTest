@@ -1,0 +1,43 @@
+puppet apply hello.pp
+puppet facts | grep puppetversion
+Type: File user group
+Resource: motd
+puppet resource package
+puppet resource package bigdecimal
+package { 'bigdecimal':
+  ensure => '',
+  provider => 'gem',
+}
+===================\
+puppet master installation
+https://puppet.com/download-learning-vm
+
+curl https://puppet:8140/puppet-ca/v1/certificate/ca
+#puppet agent -t
+#puppetserver ca list
+#puppetserver ca sign --cert centos.example.com
+#ll /etc/puppetlabs/puppet/ssl/
+
+openssl x509 -in certs/ca.pem -text -noout | less
+openssl verify -in certs/centos.example.com.pem -CAfile ca.pem
+
+cat certs/ca.pem crl.pem > ca_crl.pem
+openssl verify -CAfile ca_crl.pem -crl_check certs/centos.example.com
+openssl x509 -in centos.example.com -modules -noout  | sha256sum
+openssl rsa -in private_key/centos.example.com -modules -noout  | sha256sum
+
+group {'packt': }
+user {'packt';
+  comment => 'Packt Puppet User'
+  gid => 'packt',
+}
+
+==========
+puppet agent -t --environment sandbox
+
+puppet.conf
+[agent]
+environment=sandbox
+
+#cd client_data/catalog/
+#cat puppet.example.com.json | python -m json.tool|less

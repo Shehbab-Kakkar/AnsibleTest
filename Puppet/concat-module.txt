@@ -1,0 +1,32 @@
+Under Puppefile
+
+mod 'puppetlabs/concat'
+
+production # r10k puppetfile install
+
+modules# ls //we will concat modules
+
+manifest # site.pp
+
+concat {'/etc/motd':}
+exec { 'motd.hostname':
+  path => '/bin:/usr/bin',
+  command =>  "figlet $hostname > /etc/motd.hostname",
+  creates => '/etc/motd.hostname',
+  require => Package['figlet'],
+}
+concaat::fragment { 'hostname':
+   target  => '/etc/motd',
+   source  => '/etc/motd.hostname',
+   order   => '01',
+   require => Exec['motd.hostname'], 
+}
+package {'epel-release':
+     ensure => 'installed',
+}
+
+package { 'figlet':
+     ensure => 'installed',
+}
+
+

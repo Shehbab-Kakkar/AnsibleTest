@@ -1,0 +1,52 @@
+classes, modules and parameters
+
+# puppet config print modulepath
+
+manifests # site.pp
+$puppet_disclaimer = @(END)
+-------------
+This is our Puppet Server
+-------------
+| END
+
+node puppet {
+    class {'motd':
+    disclaimer => $puppet_disclaimer
+ }
+}
+
+node default {
+   include motd
+}
+
+=================
+Puppet Development Kit
+#puppet resource package pdk ensure=installed
+# export PATH=/usr/local/bin:$PATH
+#pdk
+webserver
+
+#cd webserver //under modules
+# ls manifests/
+# pdk new class webserver
+creating /root/webserver/manifests/init.pp from template
+
+init.pp
+
+class webserver {
+    class {'apache': }
+}
+
+
+manifests/init.pp
+
+node ubuntu {
+  include role::apache
+}
+
+modules/role/manifests/apache.pp
+
+modules/profile/manifests/apache.pp
+
+
+

@@ -1,0 +1,39 @@
+Package Resource.pp
+
+Welcome to Puppet <%= $::puppetversion -%>
+
+#puppet facts | grep puppetversion
+#puppet apply Resource.pp
+
+================
+Ordering -
+
+package {'httpd':
+   ensure => True
+}
+
+service { 'httpd':
+   ensure => true,
+   enable => true,
+   require => [Package['httpd'],File['index.html']],
+}
+
+file { 'index.html':
+    ensure => 'file',
+      path => '/var/www/html/index.html',
+   content => epp('/vagrant/section3/hello.epp'),
+   require => Package['httpd'],
+}
+
+===========
+puppet module install puppetlabs-apache
+puppet config print modulepath
+puppet config print environment
+puppet config print environment --section=agent
+vim Puppetfile
+mod 'puppetlabs/vcsrepo'
+mod 'first',
+  :git => 'https://github.com/uphillian/uphillian-sample.git',
+  :ref => 'master'
+
+r10k puppetfile install
