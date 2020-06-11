@@ -1,0 +1,14 @@
+Two Types of Storage
+Object Storage
+GET/PUT/DELETE
+Used for storing images, datafiles, documents etc.
+AWS S3, GS, Swift
+______________________|
+File/Block Storage
+Creating filesystems in containers /etc/nginx
+Examples: AWS EBS, NFS, Cinder, Gluster, iSCSI, SAN
+______________________|
+Native Cloud Architecture
+Persistence must happen somewhere
+Resiliency is usually baked into the application
+12 Factor App
