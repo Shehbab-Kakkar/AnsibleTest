@@ -1,2 +1,5 @@
 https://learn.redhat.com/t5/Containers-DevOps-OpenShift/Why-Openshift-uses-Replication-controller-by-default-and-not/td-p/9657
 https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+Openshift                    |  Kubernetes
+ReplicationController        |  ReplicaSets
+Deployment Configurations    |  Deployments
