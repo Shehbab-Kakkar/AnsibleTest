@@ -1,0 +1,3 @@
+echo ruok | nc `localhost` 2181
+echo stat | nc `localhost` 2181
+echo mntr | nc `localhost` 2181
